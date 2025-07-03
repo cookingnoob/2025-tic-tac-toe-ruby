@@ -15,5 +15,15 @@ class Player
 
   def value
     puts 'Choose a value of "X" or "O"'
+    user_value = gets.chomp
+    sanitazed_value = check_value(user_value)
+    "You have chosen #{sanitazed_value}"
+  end
+
+  def check_value(value)
+    return value.upcase if %w[X O x o].include?(value)
+
+    puts 'Wrong input, try again'
+    self.value
   end
 end

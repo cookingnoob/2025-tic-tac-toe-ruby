@@ -3,4 +3,4 @@
 require_relative 'lib/player'
 
 human_player = Player.new
-human_player.value
+p human_player.value
