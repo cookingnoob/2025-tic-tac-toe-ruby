@@ -16,16 +16,20 @@ class ValueSelector
 
   def choose_value
     puts 'Choose a value of "X" or "O"'
-    user_value = gets.chomp
-    sanitazed_value = check_value(user_value)
+    sanitazed_value = user_input
     puts "You have chosen #{sanitazed_value}"
     @human_value = sanitazed_value
+  end
+
+  def user_input
+    user_value = gets.chomp
+    check_value(user_value)
   end
 
   def check_value(value)
     return value.upcase if %w[X O x o].include?(value)
 
     puts 'Wrong input, try again'
-    player_value
+    user_input
   end
 end
