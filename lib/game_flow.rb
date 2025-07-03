@@ -3,6 +3,7 @@
 require_relative 'value_selector'
 require_relative 'turn_handler'
 require_relative 'board'
+require_relative 'player'
 
 # orchestrates different classes for the game flow
 class GameFlow
