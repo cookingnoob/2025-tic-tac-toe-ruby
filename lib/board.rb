@@ -3,12 +3,12 @@
 require_relative 'cell'
 
 # handles the array of cells and its painting into the cli
-# [0,1,2], [3,4,5], [6,7,8], [0,4,8], [6,4,2]
 class Board
   attr_accessor :cells
 
   def initialize
     @cells = Array.new(9) { Cell.new(' ') }
+    @winning_combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [6, 4, 2]]
   end
 
   def paint_board
