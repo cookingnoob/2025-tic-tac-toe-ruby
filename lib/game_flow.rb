@@ -29,7 +29,7 @@ class GameFlow
 
   def first_turn
     TurnHandler.first_turn(@player_one, @player_two)
-    p @board
+    @board.paint_board
   end
 
   def handle_match
