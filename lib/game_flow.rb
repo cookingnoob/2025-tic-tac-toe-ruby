@@ -15,6 +15,22 @@ class GameFlow
     puts 'Yei 🥳, lets play!'
     selector = ValueSelector.new
     selector.choose_value
+    first_turn
+  end
+
+  def first_turn
+    puts 'first turn is for ...'
+    puts 'instantiates a new board'
+    handle_match
+  end
+
+  def handle_match
+    puts 'class and its methods for handling match'
+    end_match
+  end
+
+  def end_match
+    puts 'class for declaring winner or tie, asks if player wants to start again'
   end
 
   def goodbye
