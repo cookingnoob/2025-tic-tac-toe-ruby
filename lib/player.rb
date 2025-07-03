@@ -8,13 +8,12 @@
 
 # class to store values for user and bot
 class Player
-  attr_accessor :value
-
-  def initialize(value)
-    @value = value
+  def initialize
+    @value = ''
+    @error_message = ''
   end
 
-  def user_value
-    puts 'Choose a value of X | Y'
+  def value
+    puts 'Choose a value of "X" or "O"'
   end
 end
