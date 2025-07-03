@@ -18,19 +18,18 @@ class GameFlow
 
   def ask_value
     puts 'Yei 🥳, lets play!'
-    ValueSelector.choose_value(@player_one, @player_two)
-    first_turn
+    @player_one.value = ValueSelector.choose_value
+    @player_two.value = ValueSelector.bot_value(@player_one.value)
+    puts "Player value #{@player_one.value}, bot value #{@player_two.value}"
   end
 
   def first_turn
     puts 'first turn is for ...'
     puts 'instantiates a new board'
-    handle_match
   end
 
   def handle_match
     puts 'class and its methods for handling match'
-    end_match
   end
 
   def end_match
