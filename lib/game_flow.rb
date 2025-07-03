@@ -13,8 +13,7 @@ class GameFlow
 
   def ask_value
     puts 'Yei 🥳, lets play!'
-    selector = ValueSelector.new
-    selector.choose_value
+    ValueSelector.choose_value
     first_turn
   end
 
