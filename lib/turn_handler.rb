@@ -9,4 +9,9 @@ class TurnHandler
     puts 'Player one begins the match' if player_one.turn
     puts 'Player two begins the match' if player_two.turn
   end
+
+  def self.current_turn(player_one, player_two)
+    puts 'player turn' if player_one.turn
+    puts 'bot turn' if player_two.turn
+  end
 end

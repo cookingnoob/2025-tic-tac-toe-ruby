@@ -7,6 +7,8 @@ require_relative 'player'
 
 # orchestrates different classes for the game flow
 class GameFlow
+  attr_accessor :winner, :tie
+
   def initialize
     @player_one = Player.new
     @player_two = Player.new
@@ -33,10 +35,15 @@ class GameFlow
   def first_turn
     TurnHandler.first_turn(@player_one, @player_two)
     @board.paint_board
+    handle_match
   end
 
   def handle_match
-    puts 'class and its methods for handling match'
+    TurnHandler.current_turn(@player_one, @player_two)
+    puts 'if its player prompt them to choose a cell'
+    puts 'if its bot take a random emtpy cell'
+    puts 'check for winner or tie'
+    puts 'change current player turn to false, pass the turn to the other player'
   end
 
   def end_match
