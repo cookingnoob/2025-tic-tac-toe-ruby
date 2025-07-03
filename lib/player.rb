@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# class get user input for user and bot values
+# First stage of the game where two players can choose a value of 'X' or 'O'
 class ValueSelector
   def initialize
     @human_value = ''
