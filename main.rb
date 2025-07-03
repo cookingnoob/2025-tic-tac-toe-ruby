@@ -2,5 +2,5 @@
 
 require_relative 'lib/player'
 
-human_player = Player.new
-human_player.value
+human_player = ValueSelector.new
+human_player.choose_value

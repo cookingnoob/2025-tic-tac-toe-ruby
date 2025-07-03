@@ -7,24 +7,25 @@
 # Despues del turno del jugador se pasa al bot
 
 # class to store values for user and bot
-class Player
+class ValueSelector
   def initialize
-    @value = ''
+    @human_value = ''
+    @bot_value = ''
     @error_message = ''
   end
 
-  def value
+  def choose_value
     puts 'Choose a value of "X" or "O"'
     user_value = gets.chomp
     sanitazed_value = check_value(user_value)
     puts "You have chosen #{sanitazed_value}"
-    @value = sanitazed_value
+    @human_value = sanitazed_value
   end
 
   def check_value(value)
     return value.upcase if %w[X O x o].include?(value)
 
     puts 'Wrong input, try again'
-    self.value
+    player_value
   end
 end
