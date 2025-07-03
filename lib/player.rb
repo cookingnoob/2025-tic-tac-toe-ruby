@@ -17,7 +17,8 @@ class Player
     puts 'Choose a value of "X" or "O"'
     user_value = gets.chomp
     sanitazed_value = check_value(user_value)
-    "You have chosen #{sanitazed_value}"
+    puts "You have chosen #{sanitazed_value}"
+    @value = sanitazed_value
   end
 
   def check_value(value)
