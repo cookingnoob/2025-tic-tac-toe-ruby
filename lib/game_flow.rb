@@ -39,12 +39,14 @@ class GameFlow
   end
 
   def handle_match
-    TurnHandler.current_turn(@player_one, @player_two, @board)
+    # loop the game cycle until there is a winner or a tie
+    # whos turn is it
+    # get their value and their cell of choice
+    # if its okay paint the board if its not repeat
+    # check for winner or tie
+    current_player = TurnHandler.current_turn(@player_one, @player_two)
+    @board.set_player_value(current_player.index, current_player.value)
     @board.paint_board
-    puts 'if its player prompt them to choose a cell'
-    puts 'if its bot take a random emtpy cell'
-    puts 'check for winner or tie'
-    puts 'change current player turn to false, pass the turn to the other player'
   end
 
   def end_match

@@ -10,14 +10,12 @@ class Player
     @index = nil
   end
 
-  def human_turn(board)
+  def choose_index
     puts 'choose a cell'
     @index = gets.chomp.to_i
-    board.set_player_value(@index, @value)
   end
 
-  def bot_turn(board)
+  def random_index
     @index = (rand * 8).to_i
-    board.set_player_value(@index, @value)
   end
 end
