@@ -11,6 +11,7 @@ class GameFlow
     @player_two = Player.new
     @board = Board.new
     @winner = false
+    @tie = false
   end
 
   def start_game
