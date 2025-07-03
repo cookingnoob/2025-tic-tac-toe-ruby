@@ -3,7 +3,6 @@
 # Handles Player turn from true to false according to who is going to play
 class TurnHandler
   def self.first_turn(player_one, player_two)
-    puts 'first turn'
     random_number = (rand * 10).to_i
     player_one.turn = true if random_number.odd?
     player_two.turn = true if random_number.even?
