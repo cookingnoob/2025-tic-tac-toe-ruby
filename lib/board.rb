@@ -21,4 +21,8 @@ class Board
   def paint_row(first, second, third)
     "#{@cells[first].value} | #{@cells[second].value} | #{@cells[third].value}"
   end
+
+  def set_player_value(location, player_value)
+    @cells[location].value = player_value
+  end
 end
