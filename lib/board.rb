@@ -28,6 +28,14 @@ class Board
 
     @cells[location].value = player_value
   end
+
+  def check_winner
+    puts 'winner!'
+  end
+
+  def declare_tie
+    puts 'its a tie!'
+  end
 end
 
 # test = Board.new
