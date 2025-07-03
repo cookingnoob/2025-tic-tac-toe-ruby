@@ -2,8 +2,13 @@
 
 # Handles Player turn from true to false according to who is going to play
 class TurnHandler
-  def self.first_turn
+  def self.first_turn(player_one, player_two)
     puts 'first turn'
-    puts (rand * 10).to_i
+    random_number = (rand * 10).to_i
+    player_one.turn = true if random_number.odd?
+    player_two.turn = true if random_number.even?
+    p random_number
+    puts 'Player one begins the match' if player_one.turn
+    puts 'Player two begins the match' if player_two.turn
   end
 end

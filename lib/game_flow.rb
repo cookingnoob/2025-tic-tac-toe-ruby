@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'value_selector'
+require_relative 'turn_handler'
 
 # orchestrates different classes for the game flow
 class GameFlow
@@ -21,10 +22,11 @@ class GameFlow
     @player_one.value = ValueSelector.choose_value
     @player_two.value = ValueSelector.bot_value(@player_one.value)
     puts "Player value #{@player_one.value}, bot value #{@player_two.value}"
+    first_turn
   end
 
   def first_turn
-    puts 'first turn is for ...'
+    TurnHandler.first_turn(@player_one, @player_two)
     puts 'instantiates a new board'
   end
 
