@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'lib/player'
+require_relative 'lib/game_flow'
 
-human_player = ValueSelector.new
-human_player.choose_value
+game = GameFlow.new
+game.start_game
