@@ -10,6 +10,7 @@ class GameFlow
     @player_one = Player.new
     @player_two = Player.new
     @board = Board.new
+    @winner = false
   end
 
   def start_game
