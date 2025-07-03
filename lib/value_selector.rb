@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
+require_relative 'player'
+
 # First stage of the game where two players can choose a value of 'X' or 'O'
 class ValueSelector
-  def self.choose_value
+  def self.choose_value(player_one, player_two)
     puts 'Choose a value of "X" or "O"'
     sanitazed_value = user_input
-    values(sanitazed_value)
+    values(sanitazed_value, player_one, player_two)
   end
 
   def self.user_input
@@ -20,14 +22,14 @@ class ValueSelector
     user_input
   end
 
-  def self.values(player_value)
+  def self.values(player_value, player_one, player_two)
     puts "You have chosen #{player_value}"
-    @human_value = player_value
-    bot_value(player_value)
+    player_one.value = player_value
+    bot_value(player_value, player_two)
   end
 
-  def self.bot_value(player_value)
-    @bot_value = player_value == 'O' ? 'X' : 'O'
+  def self.bot_value(player_value, player_two)
+    player_two.value = player_value == 'O' ? 'X' : 'O'
     puts @bot_value
   end
 end

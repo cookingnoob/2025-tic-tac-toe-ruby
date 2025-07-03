@@ -4,6 +4,11 @@ require_relative 'value_selector'
 
 # orchestrates different classes for the game flow
 class GameFlow
+  def initialize
+    @player_one = Player.new
+    @player_two = Player.new
+  end
+
   def start_game
     puts 'Want to play Tic Tac Toe? Y/N'
     user_input = gets.chomp
@@ -13,7 +18,7 @@ class GameFlow
 
   def ask_value
     puts 'Yei 🥳, lets play!'
-    ValueSelector.choose_value
+    ValueSelector.choose_value(@player_one, @player_two)
     first_turn
   end
 
