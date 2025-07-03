@@ -6,12 +6,12 @@ class TurnHandler
     random_number = (rand * 10).to_i
     player_one.turn = true if random_number.odd?
     player_two.turn = true if random_number.even?
-    puts 'Player one begins the match' if player_one.turn
-    puts 'Player two begins the match' if player_two.turn
+    puts 'Player one begins the match' if player_one.turn == true
+    puts 'Player two begins the match' if player_two.turn == true
   end
 
-  def self.current_turn(player_one, player_two)
-    player_one.human_turn if player_one.turn
-    player_two.bot_turn if player_two.turn
+  def self.current_turn(player_one, player_two, board)
+    player_one.human_turn(board) if player_one.turn
+    player_two.bot_turn(board) if player_two.turn
   end
 end
