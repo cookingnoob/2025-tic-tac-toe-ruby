@@ -2,12 +2,14 @@
 
 require_relative 'value_selector'
 require_relative 'turn_handler'
+require_relative 'board'
 
 # orchestrates different classes for the game flow
 class GameFlow
   def initialize
     @player_one = Player.new
     @player_two = Player.new
+    @board = Board.new
   end
 
   def start_game
@@ -27,7 +29,7 @@ class GameFlow
 
   def first_turn
     TurnHandler.first_turn(@player_one, @player_two)
-    puts 'instantiates a new board'
+    p @board
   end
 
   def handle_match

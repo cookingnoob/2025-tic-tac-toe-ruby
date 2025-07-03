@@ -7,7 +7,6 @@ class TurnHandler
     random_number = (rand * 10).to_i
     player_one.turn = true if random_number.odd?
     player_two.turn = true if random_number.even?
-    p random_number
     puts 'Player one begins the match' if player_one.turn
     puts 'Player two begins the match' if player_two.turn
   end
