@@ -40,6 +40,8 @@ class GameFlow
 
   def handle_match
     TurnHandler.current_turn(@player_one, @player_two)
+    p "p1 #{@player_one.value}, #{@player_one.index}"
+    p "p2 #{@player_two.value}, #{@player_two.index}"
     puts 'if its player prompt them to choose a cell'
     puts 'if its bot take a random emtpy cell'
     puts 'check for winner or tie'

@@ -11,7 +11,7 @@ class TurnHandler
   end
 
   def self.current_turn(player_one, player_two)
-    puts 'player turn' if player_one.turn
-    puts 'bot turn' if player_two.turn
+    player_one.human_turn if player_one.turn
+    player_two.bot_turn if player_two.turn
   end
 end
