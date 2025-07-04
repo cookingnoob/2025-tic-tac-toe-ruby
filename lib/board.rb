@@ -29,9 +29,9 @@ class Board
     @cells[location].value = player_value
   end
 
-  def check_winner
+  def check_winner(current_player)
     @winning_combinations.map do |c|
-      puts 'winner' if @cells[c[0]] == @cells[c[1]] && @cells[c[0]] == @cells[c[2]]
+      current_player.winner = true if @cells[c[0]] == @cells[c[1]] && @cells[c[0]] == @cells[c[2]]
     end
   end
 
