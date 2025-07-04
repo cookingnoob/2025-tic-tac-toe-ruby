@@ -35,13 +35,23 @@ class GameFlow
   def first_turn
     TurnHandler.first_turn(@player_one, @player_two)
     @board.paint_board
-    handle_match
+    whos_turn
   end
 
-  def handle_match
+  def whos_turn
     current_player = TurnHandler.current_turn(@player_one, @player_two)
+    check_move(current_player)
+  end
+
+  def check_move(current_player)
     index = current_player.choose_index
-    @board.empty_index(index)
+    empty = @board.empty_index(index)
+    retry_cell(current_player) unless empty
+  end
+
+  def retry_cell(current_player)
+    puts 'Cell already taken, choose another one'
+    check_move(current_player)
   end
 
   def end_match

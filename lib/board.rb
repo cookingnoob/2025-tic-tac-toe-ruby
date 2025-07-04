@@ -24,7 +24,7 @@ class Board
   end
 
   def empty_index(index)
-    @cells[index] != ' '
+    @cells[index].value == ' '
   end
 
   def set_player_value(location, player_value)
