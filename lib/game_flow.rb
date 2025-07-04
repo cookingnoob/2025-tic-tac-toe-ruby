@@ -6,24 +6,24 @@ require_relative 'player'
 
 # orchestrates different classes for the game flow
 class GameFlow
-  attr_accessor :board, :player_one, :player_two
+  attr_accessor :board, :players
 
   def initialize
     @board = Board.new
-    @player_one = Player.new('player one')
-    @player_two = Player.new('player two')
+    @players = [Player.new('player one'), Player.new('player two')]
   end
 
   def begin
     random_number = random_number_generator
-    @player_one.turn = true if random_number.even?
-    @player_two.turn = true if random_number.odd?
+    @players[0].turn = true if random_number.even?
+    @players[1].turn = true if random_number.odd?
     values
   end
 
   def values
-    player_values(@player_one, @player_two) if @player_one.turn
-    player_values(@player_two, @player_one) if @player_two.turn
+    player_values(@players[0], @players[1]) if @players[0].turn
+    player_values(@players[1], @players[0]) if @players[1].turn
+    p @players
   end
 
   def player_values(playing_first, playing_second)
