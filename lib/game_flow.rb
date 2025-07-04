@@ -39,12 +39,9 @@ class GameFlow
   end
 
   def handle_match
-    # if its okay paint the board if its not repeat
-    # check for winner or tie
     current_player = TurnHandler.current_turn(@player_one, @player_two)
-    @board.set_player_value(current_player.index, current_player.value)
-    @board.paint_board
-    @board.check_winner(current_player)
+    index = current_player.choose_index
+    @board.empty_index(index)
   end
 
   def end_match

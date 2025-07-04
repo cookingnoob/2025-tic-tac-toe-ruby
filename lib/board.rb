@@ -23,8 +23,12 @@ class Board
     "#{@cells[first].value}|#{@cells[second].value}|#{@cells[third].value}"
   end
 
+  def empty_index(index)
+    @cells[index] != ' '
+  end
+
   def set_player_value(location, player_value)
-    return 'cell already has a value' if @cells[location].value != ' '
+    puts 'cell already has a value' if @cells[location].value != ' '
 
     @cells[location].value = player_value
   end

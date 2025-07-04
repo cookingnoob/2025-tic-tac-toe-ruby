@@ -12,18 +12,8 @@ class TurnHandler
   end
 
   def self.current_turn(player_one, player_two)
-    return handle_human(player_one) if player_one.turn
+    return player_one if player_one.turn
 
-    handle_bot(player_two) if player_two.turn
-  end
-
-  def self.handle_human(player_one)
-    player_one.choose_index
-    player_one
-  end
-
-  def self.handle_bot(player_two)
-    player_two.random_index
-    player_two
+    player_two if player_two.turn
   end
 end
