@@ -15,6 +15,7 @@ class GameFlow
 
   def begin
     random_number = Random.rand(1...99)
-    p random_number
+    puts 'player one begins' if random_number.even?
+    puts 'player two begins' if random_number.odd?
   end
 end
