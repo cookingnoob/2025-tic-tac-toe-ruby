@@ -15,18 +15,15 @@ class GameFlow
   end
 
   def begin
-    random_number = Random.rand(1...99)
+    random_number = random_number_generator
     @player_one.turn = true if random_number.even?
     @player_two.turn = true if random_number.odd?
     values
   end
 
   def values
-    if @player_one.turn
-      player_values(@player_one, @player_two)
-    elsif @player_two.turn
-      player_values(@player_two, @player_one)
-    end
+    player_values(@player_one, @player_two) if @player_one.turn
+    player_values(@player_two, @player_one) if @player_two.turn
   end
 
   def player_values(playing_first, playing_second)
@@ -34,5 +31,9 @@ class GameFlow
     playing_first.value = ValueSelector.choose_value
     playing_second.value = ValueSelector.second_player_value(playing_first.value)
     puts "#{playing_first.name} is #{playing_first.value} | #{playing_second.name} is #{playing_second.value}"
+  end
+
+  def random_number_generator
+    Random.rand(1...99)
   end
 end
