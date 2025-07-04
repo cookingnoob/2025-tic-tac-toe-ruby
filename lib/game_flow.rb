@@ -9,7 +9,12 @@ class GameFlow
 
   def initialize
     @board = Board.new
+    @player_one = ''
+    @player_two = ''
+  end
+
+  def begin
+    random_number = Random.rand(1...99)
+    p random_number
   end
 end
-
-# la meta es que el juego funcione, luego hago el refactor
