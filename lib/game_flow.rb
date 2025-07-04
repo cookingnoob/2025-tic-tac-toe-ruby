@@ -32,7 +32,7 @@ class GameFlow
   def match
     9.times do
       if @player_one.turn
-        puts 'player one turn'
+        puts 'Player one turn'
         switch_turn
       elsif @player_two.turn
         puts 'player two turn'
