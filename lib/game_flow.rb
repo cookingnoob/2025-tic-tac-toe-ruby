@@ -16,13 +16,26 @@ class GameFlow
 
   def begin
     random_number = Random.rand(1...99)
-    player_one.turn = true if random_number.even?
-    player_two.turn = true if random_number.odd?
+    puts "even #{random_number.even?}"
+    puts "odd #{random_number.odd?}"
+    @player_one.turn = true if random_number.even?
+    @player_two.turn = true if random_number.odd?
     values
   end
 
   def values
-    puts 'player one gets value' if player_one.turn
-    puts 'player two gets value' if player_two.turn
+    if @player_one.turn
+      puts 'player one begins'
+      player_values(@player_one, @player_two)
+    elsif @player_two.turn
+      puts 'player two begins'
+      player_values(@player_two, @player_one)
+    end
+    puts "player one is #{@player_one.value} player two is #{@player_two.value}"
+  end
+
+  def player_values(playing_first, playing_second)
+    playing_first.value = ValueSelector.choose_value
+    playing_second.value = ValueSelector.second_player_value(playing_first.value)
   end
 end

@@ -19,7 +19,7 @@ class ValueSelector
     user_input
   end
 
-  def self.bot_value(player_value)
+  def self.second_player_value(player_value)
     player_value == 'O' ? 'X' : 'O'
   end
 end
