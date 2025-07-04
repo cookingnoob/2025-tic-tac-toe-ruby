@@ -27,19 +27,9 @@ class Board
     @cells[index].value == ' '
   end
 
-  def set_player_value(location, player_value)
-    puts 'cell already has a value' if @cells[location].value != ' '
-
-    @cells[location].value = player_value
-  end
-
   def check_winner(current_player)
     @winning_combinations.map do |c|
       current_player.winner = true if @cells[c[0]] == @cells[c[1]] && @cells[c[0]] == @cells[c[2]]
     end
-  end
-
-  def declare_tie
-    puts 'its a tie!'
   end
 end

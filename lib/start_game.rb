@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-#
+# begins match
 class StartGame
   def self.start_game
     puts 'Want to play Tic Tac Toe? Y/N'

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'player'
-
 # First stage of the game where two players can choose a value of 'X' or 'O'
 class ValueSelector
   def self.choose_value
