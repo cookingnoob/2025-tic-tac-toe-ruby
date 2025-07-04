@@ -27,9 +27,14 @@ class GameFlow
   def ask_value
     puts 'Yei 🥳, lets play!'
     @player_one.value = ValueSelector.choose_value
-    @player_two.value = ValueSelector.bot_value(@player_one.value)
+    handle_bot_value
     puts "Player value #{@player_one.value}, bot value #{@player_two.value}"
     first_turn
+  end
+
+  def handle_bot_value
+    @player_two.value = ValueSelector.bot_value(@player_one.value)
+    @player_two.bot = true
   end
 
   def first_turn
@@ -49,11 +54,6 @@ class GameFlow
     retry_cell(current_player) unless empty
   end
 
-  def retry_cell(current_player)
-    puts 'Cell already taken, choose another one'
-    check_move(current_player)
-  end
-
   def end_match
     puts 'class for declaring winner or tie, asks if player wants to start again'
   end
@@ -61,5 +61,10 @@ class GameFlow
   def goodbye
     puts 'Ok 😪, goodbye'
     exit
+  end
+
+  def retry_cell(current_player)
+    puts 'Cell already taken, choose another one'
+    check_move(current_player)
   end
 end
