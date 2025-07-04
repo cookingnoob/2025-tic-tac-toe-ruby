@@ -8,7 +8,7 @@ class Board
 
   def initialize
     @cells = Array.new(9) { Cell.new(' ') }
-    @winning_combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [6, 4, 2]]
+    @winning_combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [6, 4, 2], [0, 3, 6], [2, 5, 8]]
   end
 
   def paint_board
@@ -30,22 +30,12 @@ class Board
   end
 
   def check_winner
-    puts 'winner!'
+    @winning_combinations.map do |c|
+      puts 'winner' if @cells[c[0]] == @cells[c[1]] && @cells[c[0]] == @cells[c[2]]
+    end
   end
 
   def declare_tie
     puts 'its a tie!'
   end
 end
-
-# test = Board.new
-# test.paint_board
-# p 'turn one'
-# test.set_player_value(4, 'X')
-# test.paint_board
-# p 'second turn'
-# test.set_player_value(8, 'O')
-# test.paint_board
-# p 'third turn'
-# p test.set_player_value(8, 'X')
-# test.paint_board
