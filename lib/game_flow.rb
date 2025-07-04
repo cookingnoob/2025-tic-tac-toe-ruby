@@ -23,7 +23,24 @@ class GameFlow
   def values
     player_values(@players[0], @players[1]) if @players[0].turn
     player_values(@players[1], @players[0]) if @players[1].turn
-    p @players
+    game_loop
+  end
+
+  def game_loop
+    9.times do
+      current_player = whos_turn
+
+      @players.map do |p|
+        p.turn = p != current_player
+      end
+    end
+  end
+
+  def whos_turn
+    current_player = @players[0] if @players[0].turn
+    current_player = @players[1] if @players[1].turn
+    puts "#{current_player.name} turn"
+    current_player
   end
 
   def player_values(playing_first, playing_second)
