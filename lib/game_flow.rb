@@ -30,28 +30,19 @@ class GameFlow
   end
 
   def match
-    player_one_turn if @player_one.turn == true
-    player_two_turn if @player_two.turn == true
+    9.times do
+      if @player_one.turn
+        puts 'player one turn'
+        switch_turn
+      elsif @player_two.turn
+        puts 'player two turn'
+        switch_turn
+      end
+    end
   end
 
-  def player_one_turn
-    puts 'choosing cell'
-    puts add_value
-    puts 'printing new board'
-    puts 'if game not finished'
-    puts 'bot turn'
-  end
-
-  def player_two_turn
-    puts 'choosing cell'
-    puts add_value
-    puts 'printing new board'
-    puts 'if game not finished'
-    puts 'human turn'
-  end
-
-  def add_value
-    puts 'cell available'
-    puts 'adding value to board'
+  def switch_turn
+    @player_two.turn = !@player_two.turn
+    @player_one.turn = !@player_one.turn
   end
 end

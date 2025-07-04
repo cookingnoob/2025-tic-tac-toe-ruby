@@ -2,15 +2,9 @@
 
 # Responsible for whos turn is it
 class TurnHandler
+  # necesito un check para el loop del juego
+  def initialize
+    @player_one_turn = false
+    @player_two_turn = false
+  end
 end
-
-# def self.current_turn(player_one, player_two)
-#   return player_one if player_one.turn
-
-#   player_two if player_two.turn
-# end
-
-# def whos_turn
-#   current_player = TurnHandler.current_turn(@player_one, @player_two)
-#   check_move(current_player)
-# end
