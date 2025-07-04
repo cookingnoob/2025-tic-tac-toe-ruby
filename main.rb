@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'lib/game_flow'
+require_relative 'lib/app'
 
-game = GameFlow.new
-game.start
+App.run
