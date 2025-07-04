@@ -2,10 +2,11 @@
 
 require_relative 'board'
 require_relative 'value_selector'
+require_relative 'player'
 
 # orchestrates different classes for the game flow
 class GameFlow
-  attr_accessor :board, @player_one, @player_two
+  attr_accessor :board, :player_one, :player_two
 
   def initialize
     @board = Board.new
@@ -15,7 +16,13 @@ class GameFlow
 
   def begin
     random_number = Random.rand(1...99)
-    puts 'player one begins' if random_number.even?
-    puts 'player two begins' if random_number.odd?
+    player_one.turn = true if random_number.even?
+    player_two.turn = true if random_number.odd?
+    values
+  end
+
+  def values
+    puts 'player one gets value' if player_one.turn
+    puts 'player two gets value' if player_two.turn
   end
 end
