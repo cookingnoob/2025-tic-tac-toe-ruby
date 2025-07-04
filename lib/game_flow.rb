@@ -5,12 +5,12 @@ require_relative 'value_selector'
 
 # orchestrates different classes for the game flow
 class GameFlow
-  attr_accessor :board
+  attr_accessor :board, @player_one, @player_two
 
   def initialize
     @board = Board.new
-    @player_one = ''
-    @player_two = ''
+    @player_one = Player.new
+    @player_two = Player.new
   end
 
   def begin
