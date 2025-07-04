@@ -13,5 +13,6 @@ class NewGame
 
   def start
     @game = GameFlow.new if StartGame.start_game
+    puts 'Yei 🥳, lets play!'
   end
 end
