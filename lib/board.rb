@@ -27,6 +27,11 @@ class Board
     @cells[index].value == ' '
   end
 
+  def choose_cell(index, value)
+    @cells[index].value = value
+    paint_board
+  end
+
   def check_winner(current_player)
     @winning_combinations.map do |c|
       current_player.winner = true if @cells[c[0]] == @cells[c[1]] && @cells[c[0]] == @cells[c[2]]

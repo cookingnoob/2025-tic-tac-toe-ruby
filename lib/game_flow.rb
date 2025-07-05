@@ -29,8 +29,7 @@ class GameFlow
   def game_loop
     9.times do
       current_player = whos_turn
-      index = select_cell
-      p index
+      @board.choose_cell(select_cell, current_player.value)
       # se revisa la celda si esta ocupada se pide que tome otra
       # se checa por ganador
       # se checa por empate
@@ -42,7 +41,7 @@ class GameFlow
   def select_cell
     puts 'choose a cell from 0-8'
     index = gets.chomp.to_i
-    @board.empty_index(index)
+    index if @board.empty_index(index)
   end
 
   def switch_turn(current_player)
