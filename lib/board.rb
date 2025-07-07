@@ -47,7 +47,10 @@ class Board
 
   def check_winner(current_player)
     @winning_combinations.map do |c|
-      current_player.winner = true if @cells[c[0]] == @cells[c[1]] && @cells[c[0]] == @cells[c[2]]
+      if (@cells[c[0]].value != ' ') && @cells[c[0]].value == @cells[c[1]].value && @cells[c[0]].value == @cells[c[2]].value
+        current_player.winner = true
+      end
     end
+    current_player
   end
 end

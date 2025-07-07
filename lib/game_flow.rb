@@ -31,8 +31,7 @@ class GameFlow
       current_player = whos_turn
       index = @board.ask_for_cell
       @board.choose_cell(index, current_player.value)
-      @board.check_winner(current_player)
-      # se checa por empate
+      p @board.check_winner(current_player)
       # anuncio de que paso
       switch_turn(current_player)
     end
