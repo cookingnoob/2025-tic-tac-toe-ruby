@@ -28,14 +28,26 @@ class GameFlow
 
   def game_loop
     9.times do
-      current_player = whos_turn
-      index = @board.ask_for_cell
-      @board.choose_cell(index, current_player.value)
-      @board.check_winner(current_player)
-      announce_winner(current_player) if current_player.winner
-      announce_tie if @board.check_tie
-      switch_turn(current_player)
+      turn_flow
     end
+  end
+
+  def turn_flow
+    current_player = whos_turn
+    add_move(current_player)
+    game_ended(current_player)
+    switch_turn(current_player)
+  end
+
+  def add_move(current_player)
+    index = @board.ask_for_cell
+    @board.choose_cell(index, current_player.value)
+    @board.check_winner(current_player)
+  end
+
+  def game_ended(current_player)
+    announce_winner(current_player) if current_player.winner
+    announce_tie if @board.check_tie
   end
 
   def announce_winner(current_player)
