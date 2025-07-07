@@ -46,11 +46,5 @@ class Board
   end
 
   def check_winner(current_player)
-    @winning_combinations.map do |c|
-      if (@cells[c[0]].value != ' ') && @cells[c[0]].value == @cells[c[1]].value && @cells[c[0]].value == @cells[c[2]].value
-        current_player.winner = true
-      end
-    end
-    current_player
   end
 end
