@@ -29,9 +29,9 @@ class GameFlow
   def game_loop
     9.times do
       current_player = whos_turn
-      @board.choose_cell(select_cell, current_player.value)
-      # se revisa la celda si esta ocupada se pide que tome otra
-      # se checa por ganador
+      index = @board.ask_for_cell
+      @board.choose_cell(index, current_player.value)
+      @board.check_winner(current_player)
       # se checa por empate
       # anuncio de que paso
       switch_turn(current_player)
