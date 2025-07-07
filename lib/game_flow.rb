@@ -38,12 +38,6 @@ class GameFlow
     end
   end
 
-  def select_cell
-    puts 'choose a cell from 0-8'
-    index = gets.chomp.to_i
-    index if @board.empty_index(index)
-  end
-
   def switch_turn(current_player)
     @players.map do |p|
       p.turn = p != current_player

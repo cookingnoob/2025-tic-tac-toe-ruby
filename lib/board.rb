@@ -23,6 +23,19 @@ class Board
     "#{@cells[first].value}|#{@cells[second].value}|#{@cells[third].value}"
   end
 
+  def ask_for_cell
+    puts 'choose a cell between 0-8'
+    index = gets.chomp.to_i
+    return index if empty_index(index)
+
+    choose_again_cell unless empty_index(index)
+  end
+
+  def choose_again_cell
+    puts 'that cell has already been taken!'
+    ask_for_cell
+  end
+
   def empty_index(index)
     @cells[index].value == ' '
   end
