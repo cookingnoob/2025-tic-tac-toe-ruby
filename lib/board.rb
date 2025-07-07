@@ -8,7 +8,7 @@ class Board
 
   def initialize
     @cells = Array.new(9) { Cell.new(' ') }
-    @winning_combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [6, 4, 2], [0, 3, 6], [2, 5, 8]]
+    @winning_combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [6, 4, 2], [0, 3, 6], [1, 4, 7], [2, 5, 8]]
   end
 
   def paint_board
@@ -46,5 +46,12 @@ class Board
   end
 
   def check_winner(current_player)
+    @winning_combinations.each do |combination|
+      next unless [@cells[combination[0]], @cells[combination[1]], @cells[combination[2]]].all? do |c|
+        c.value != ' '
+      end && @cells[combination[0]].value == @cells[combination[1]].value && @cells[combination[0]].value == @cells[combination[2]].value
+
+      current_player.winner = true
+    end
   end
 end
