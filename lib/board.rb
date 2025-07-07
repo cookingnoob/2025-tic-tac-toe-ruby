@@ -4,11 +4,12 @@ require_relative 'cell'
 
 # handles the array of cells and its painting into the cli
 class Board
-  attr_accessor :cells
+  attr_accessor :cells, :tie
 
   def initialize
     @cells = Array.new(9) { Cell.new(' ') }
     @winning_combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [6, 4, 2], [0, 3, 6], [1, 4, 7], [2, 5, 8]]
+    @tie = false
   end
 
   def paint_board
@@ -52,6 +53,10 @@ class Board
 
       current_player.winner = true
     end
+  end
+
+  def check_tie
+    @tie = true if empty_cells(@cells)
   end
 
   def empty_cells(cells)

@@ -32,10 +32,20 @@ class GameFlow
       index = @board.ask_for_cell
       @board.choose_cell(index, current_player.value)
       @board.check_winner(current_player)
-      p current_player.name, current_player.winner
-      # anuncio de que paso
+      announce_winner(current_player) if current_player.winner
+      announce_tie if @board.check_tie
       switch_turn(current_player)
     end
+  end
+
+  def announce_winner(current_player)
+    puts "#{current_player.name} wins!"
+    exit
+  end
+
+  def announce_tie
+    puts 'its a tie'
+    exit
   end
 
   def switch_turn(current_player)
