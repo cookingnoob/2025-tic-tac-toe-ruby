@@ -48,11 +48,15 @@ class Board
   def check_winner(current_player)
     @winning_combinations.each do |combination|
       cells = [@cells[combination[0]], @cells[combination[1]], @cells[combination[2]]]
-      next unless cells.all? do |c|
-        c.value != ' '
-      end && winner_cells(cells)
+      next unless empty_cells(cells) && winner_cells(cells)
 
       current_player.winner = true
+    end
+  end
+
+  def empty_cells(cells)
+    cells.all? do |c|
+      c.value != ' '
     end
   end
 
