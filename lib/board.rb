@@ -50,9 +50,13 @@ class Board
       cells = [@cells[combination[0]], @cells[combination[1]], @cells[combination[2]]]
       next unless cells.all? do |c|
         c.value != ' '
-      end && cells[0].value == cells[1].value && cells[0].value == cells[2].value
+      end && winner_cells(cells)
 
       current_player.winner = true
     end
+  end
+
+  def winner_cells(cells)
+    cells[0].value == cells[1].value && cells[0].value == cells[2].value
   end
 end
